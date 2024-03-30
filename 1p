@@ -1,0 +1,37 @@
+'''import csv
+with open('magical.txt', encoding='utf8') as f:
+    reader = csv.reader(f, delimiter="№")
+    ans = list(reader)[1:]
+c = 0
+s = []
+for magicaPotions, count, magic_herbs_1, magic_herbs_2, magic_herbs_3 in ans:
+    if count == '-1':
+        c += 1
+print(f'Общее кол-во всех трав {c}')
+
+
+
+with open('magicaPotions1.csv', 'w', newline='', encoding='utf8') as f:
+    w = csv.writer(f)
+    w.writerow(['magic_herbs', 'count_herbs'])
+    w.writerows(ans)'''
+
+n = input()
+import csv
+with open('magical.txt', encoding='utf8') as f:
+    reader = csv.reader(f, delimiter="№")
+    ans = list(reader)[1:]
+r = []
+q = []
+m = []
+for magicaPotions, count, magic_herbs_1, magic_herbs_2, magic_herbs_3 in ans:
+    if magic_herbs_1 == n:
+        r.append(magic_herbs_1)
+        q.append(count)
+        m.append(magicaPotions)
+    for i in range(len(q)):
+        if min(q) == q[i]:
+            print(f'По вашему запросу: {r[i]} найден следующий вариант: {r[i]} используется в {m[i]}, его количество составляет: {min(q)}')
+    else:
+        continue
+        '''print('Такую траву мы не используем')'''
